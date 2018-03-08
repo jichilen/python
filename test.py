@@ -1,14 +1,10 @@
-#coding=utf-8
-'''
+import logging
+from collections import deque
 
-'''
-# try:
-#     f=open('iterclass.py','r')
-#     print f.read()
-# except Exception as e:
-#     raise e
-# finally:
-#     f.close()
-with open('Color Scheme - Default.sublime-package','rb') as f:
-    with open('111.txt', 'w') as fp:
-        fp.write(f.read(1000))
+logging.basicConfig(level=logging.INFO)
+q=deque(['a','b','c'])
+q.append('x')
+q.remove('b')
+logging.info(q)
+
+import struct
