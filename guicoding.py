@@ -1,3 +1,9 @@
+#coding=utf-8
+'''
+python中简单gui的设计
+主要使用了Tkinter包
+
+'''
 from Tkinter import *
 import tkMessageBox
 
