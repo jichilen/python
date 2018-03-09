@@ -4,6 +4,7 @@
 "1234" 
 to 
 1234
+展示了 map reduce filter的用法  都是对list进行处理
 '''
 def fn(a,b):
 	return 10*a+b
@@ -14,6 +15,11 @@ def str2num(a):
 print str2num("1121")
 
 
-print '\n'
+
 b=int("1121")
 print b
+
+def rem(a):
+	return a>3
+
+print filter(rem,[1,2,3,4,5,6])
