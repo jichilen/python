@@ -1,4 +1,4 @@
-#coding=utf-8
+    #coding=utf-8
 '''
 读取当前目录文件
 '''

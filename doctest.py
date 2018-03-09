@@ -1,8 +1,9 @@
-#coding=utf-8
+# coding=utf-8
 '''
 使用文档测试来检测类的编写是否发生错误
 测试过程会严格按照注释中的输入输出进行核对
 '''
+
 
 class Dict(dict):
     '''
@@ -27,6 +28,7 @@ class Dict(dict):
         ...
     AttributeError: 'Dict' object has no attribute 'empty'
     '''
+
     def __init__(self, **kw):
         super(Dict, self).__init__(**kw)
 
@@ -36,9 +38,11 @@ class Dict(dict):
         except KeyError:
             raise AttributeError(r"'Dict' object has no attribute '%s'" % key)
 
-    # def __setattr__(self, key, value):
-    #     self[key] = value
+            # def __setattr__(self, key, value):
+            #     self[key] = value
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     import doctest
+
     doctest.testmod()
