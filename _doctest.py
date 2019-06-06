@@ -43,6 +43,6 @@ class Dict(dict):
 
 
 if __name__ == '__main__':
-    import doctest
+    import _doctest
 
-    doctest.testmod()
+    _doctest.testmod()
