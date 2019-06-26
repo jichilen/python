@@ -1,3 +1,5 @@
+import random
+
 def bubblesort(nums):
     for i in range(len(nums)):
         for j in range(i, len(nums)):
@@ -29,14 +31,30 @@ def shellsort(nums):
     pass
 
 
-def quicksort(nums):
+def quicksort(nums,bg,ed):
     '''
     找基准值，分左右两边，直接完成基准值的排序
     :param nums:
     :return:
     '''
-    pass
+    ind = quicksorthelper(nums,bg,ed)
+    if ind < 0:
+        return
+    quicksort(nums,bg,ind)
+    quicksort(nums,ind+1,ed)
 
+def quicksorthelper(nums,bg,ed):
+    if ed-bg<=1:
+        return -1
+    p = bg+1
+    psmall = bg
+    while p<ed:
+        if nums[p]<=nums[bg]:
+            psmall+=1
+            nums[p],nums[psmall]=nums[psmall],nums[p]
+        p = p+1
+    nums[bg], nums[psmall] = nums[psmall], nums[bg]
+    return psmall
 
 def mergesort(nums):
     '''
@@ -84,9 +102,20 @@ def heapsort(nums):
 
 
 if __name__ == '__main__':
-    nums = [1, 12, 1, 6, 7, 8, 3, 5, 11]
+    numb = list(range(1000))
+    random.shuffle(numb)
+    nums = numb.copy()
+    bubblesort(nums)
+    print(nums)
+    nums = numb.copy()
+    selectionsort(nums)
+    print(nums)
+    nums=numb.copy()
     insertsort(nums)
     print(nums)
-    nums = [1, 1, 3, 5, 6, 7, 8, 11, 12]
+    nums=numb.copy()
     re = mergesort(nums)
     print(re)
+    nums=numb.copy()
+    quicksort(nums,0,len(nums))
+    print(nums)
