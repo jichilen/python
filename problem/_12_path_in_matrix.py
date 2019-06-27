@@ -31,7 +31,14 @@ if __name__ == '__main__':
         ['c', 'f', 'c', 's'],
         ['j', 'd', 'e', 'h']
     ]
+    matrix = [
+        ['a','b','c','d','e']
+    ]
+    matrix = [
+        ['a'], ['b'], ['c'], ['d'], ['e']
+    ]
     target = 'bfce'
     target = 'abfb'
     target = 'acfbtcede'
+    target = 'cba'
     print(solution(matrix, target))
