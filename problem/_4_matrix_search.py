@@ -29,3 +29,5 @@ if __name__ == '__main__':
     print(re)
     re = matrix_search(mat,7)
     print(re)
+    mat = [[1, 2, 8, 9], [2, 4, 9, 12], [4, 7, 10, 13], [6, 8, 11, 15]]
+    print(matrix_search(mat,5))

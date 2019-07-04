@@ -16,22 +16,21 @@ def reverse_list(nums,bg,ed):
     if len(nums)==0:
         return None
 
-    mid = (bg+ed)//2
-    if nums[bg]<=nums[ed]:
-        return nums[bg]
-
-    if nums[mid]<nums[bg]:
-        return reverse_list(nums,bg,mid)
-    elif mid == bg:
-        return reverse_list(nums, mid+1, ed)
-    else:
-        return reverse_list(nums,mid,ed)
-
+    while bg < ed:
+        mid = (bg + ed) // 2
+        if nums[mid]>nums[ed]:
+            bg = mid +1
+        elif nums[mid] == nums[ed]:
+            ed -= 1
+        else:
+            ed = mid
+    return nums[bg]
 
 
 if __name__ == '__main__':
     nums = [1,2,3,4,5]
     nums = [3,4,5,1,2]
     nums = [1,1,1,1,0,1]
+    nums = [6,7,1,2,3,4,5]
     nu = reverse_list(nums,0,len(nums)-1)
     print(nu)
