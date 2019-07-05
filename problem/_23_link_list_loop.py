@@ -29,6 +29,7 @@ def link_list_loop(head):
 
 if __name__ == '__main__':
     head = My_Linked_List.linklist(list(range(11)))
+    print(link_list_loop(head))
     tmp =head
     while tmp.next:
         tmp = tmp.next
