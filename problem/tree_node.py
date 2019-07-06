@@ -1,3 +1,7 @@
+#前序：根左右
+#中序：左根右
+#后序：左右根
+
 class MyTreeNode():
     def __init__(self, val, left=None, right=None):
         self.val = val
