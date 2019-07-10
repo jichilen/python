@@ -1,5 +1,6 @@
 import random
 
+
 def bubblesort(nums):
     for i in range(len(nums)):
         for j in range(i, len(nums)):
@@ -31,30 +32,32 @@ def shellsort(nums):
     pass
 
 
-def quicksort(nums,bg,ed):
+def quicksort(nums, bg, ed):
     '''
     找基准值，分左右两边，直接完成基准值的排序
     :param nums:
     :return:
     '''
-    ind = quicksorthelper(nums,bg,ed)
+    ind = quicksorthelper(nums, bg, ed)
     if ind < 0:
         return
-    quicksort(nums,bg,ind)
-    quicksort(nums,ind+1,ed)
+    quicksort(nums, bg, ind)
+    quicksort(nums, ind + 1, ed)
 
-def quicksorthelper(nums,bg,ed):
-    if ed-bg<=1:
+
+def quicksorthelper(nums, bg, ed):
+    if ed - bg <= 1:
         return -1
-    p = bg+1
+    p = bg + 1
     psmall = bg
-    while p<ed:
-        if nums[p]<=nums[bg]:
-            psmall+=1
-            nums[p],nums[psmall]=nums[psmall],nums[p]
-        p = p+1
+    while p < ed:
+        if nums[p] <= nums[bg]:
+            psmall += 1
+            nums[p], nums[psmall] = nums[psmall], nums[p]
+        p = p + 1
     nums[bg], nums[psmall] = nums[psmall], nums[bg]
     return psmall
+
 
 def mergesort(nums):
     '''
@@ -98,24 +101,47 @@ def heapsort(nums):
     :param nums:
     :return:
     '''
-    pass
+    ln = len(nums)
+    for i in range(ln // 2 - 1, -1, -1):
+        heap_swap(nums, i, ln)
+    for l in range(ln - 1, -1, -1):
+        nums[l], nums[0] = nums[0], nums[l]
+        heap_swap(nums, 0, l)
+
+
+def heap_swap(nums, k, l):
+    tmp = nums[k]
+    while 2 * k + 1 < l:
+        p = 2 * k + 1
+        if p+1<l and nums[p]<nums[p+1]:
+            p += 1
+        if tmp < nums[p]:
+            nums[k] = nums[p]
+            k = p
+        else:
+            break
+    nums[k] = tmp
 
 
 if __name__ == '__main__':
     numb = list(range(1000))
     random.shuffle(numb)
+    print(numb)
     nums = numb.copy()
     bubblesort(nums)
     print(nums)
     nums = numb.copy()
     selectionsort(nums)
     print(nums)
-    nums=numb.copy()
+    nums = numb.copy()
     insertsort(nums)
     print(nums)
-    nums=numb.copy()
+    nums = numb.copy()
     re = mergesort(nums)
     print(re)
-    nums=numb.copy()
-    quicksort(nums,0,len(nums))
+    nums = numb.copy()
+    quicksort(nums, 0, len(nums))
+    print(nums)
+    nums = numb.copy()
+    heapsort(nums)
     print(nums)
