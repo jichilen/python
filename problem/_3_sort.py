@@ -1,5 +1,5 @@
 import random
-
+import heapq
 
 def bubblesort(nums):
     for i in range(len(nums)):
@@ -122,6 +122,11 @@ def heap_swap(nums, k, l):
             break
     nums[k] = tmp
 
+def heapsort_offi(iterable):
+     h = []
+     for value in iterable:
+         heapq.heappush(h, value)
+     return [heapq.heappop(h) for i in range(len(h))]
 
 if __name__ == '__main__':
     numb = list(range(1000))
@@ -145,3 +150,6 @@ if __name__ == '__main__':
     nums = numb.copy()
     heapsort(nums)
     print(nums)
+    nums = numb.copy()
+    print(heapsort_offi(nums))
+
