@@ -11,6 +11,20 @@ def all_list_of_str(str1):
         return result
     return helper(str1)
 
+def all_sort(nums):
+    out = []
+    def helper(nums,bg):
+        if bg == len(nums)-1:
+            out.append(nums.copy())
+            return
+        for i in range(bg,len(nums)):
+            nums[i],nums[bg] = nums[bg],nums[i]
+            helper(nums,bg+1)
+            nums[i], nums[bg] = nums[bg], nums[i]
+    helper(nums,0)
+    return out
+
+
 if __name__ == '__main__':
-    str1 = "abd"
-    print(all_list_of_str(str1))
+    str1 = ['a','b','c','d']
+    print(all_sort(str1))

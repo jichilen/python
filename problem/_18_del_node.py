@@ -41,12 +41,29 @@ def del_dum_node(head):
 
     return head.next
 
+def del_dum_node2(head):
+    p1 = My_ListNode(0,head)
+    out = p1
+    p2 = p1.next
+    while p1.next is not None:
+        if p2 and p2.next and p2.next.val == p2.val:
+            val = p2.val
+            while p2.next and p2.next.val==val:
+                p2 = p2.next
+            p2 = p2.next
+        else:
+            p1.next = p2
+            if p2:
+                p1 = p1.next
+                p2 = p2.next
+    return out.next
+
 if __name__ == '__main__':
     for n in range(-1,9):
         head = My_Linked_List.linklist([1, 5, 4, 2, 3, 11, 2, 3])
         out = del_node(head,n)
         My_Linked_List.printlist(out)
     print()
-    head = My_Linked_List.linklist([1,1,2,3,4,4,5,6,6])
-    out = del_dum_node(head)
+    head = My_Linked_List.linklist([1,1,1,2,3,4,4,5,6,6,7,7])
+    out = del_dum_node2(head)
     My_Linked_List.printlist(out)

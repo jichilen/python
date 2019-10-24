@@ -5,31 +5,6 @@ class solution:
         self.maxheap = []
         self.total_n = 0
 
-    def max_heap_swap(self,nums, k, l):
-        tmp = nums[k]
-        while 2 * k + 1 < l:
-            p = 2 * k + 1
-            if p + 1 < l and nums[p] < nums[p + 1]:
-                p += 1
-            if tmp < nums[p]:
-                nums[k] = nums[p]
-                k = p
-            else:
-                break
-        nums[k] = tmp
-
-    def min_heap_swap(self, nums, k, l):
-        tmp = nums[k]
-        while 2 * k + 1 < l:
-            p = 2 * k + 1
-            if p + 1 < l and nums[p] > nums[p + 1]:
-                p += 1
-            if tmp > nums[p]:
-                nums[k] = nums[p]
-                k = p
-            else:
-                break
-        nums[k] = tmp
 
     def median_of_flow(self,ch):
         if self.total_n == 0:

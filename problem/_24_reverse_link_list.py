@@ -22,6 +22,33 @@ def reverse_link_list(head):
     p_next.next = p_pre
     return p_next
 
+def reverse(head):
+    if head is None:
+        return None
+    p1 = head
+    if p1.next:
+        p2 = p1.next
+    else:
+        return head
+    p1.next = None
+    while p2.next:
+        sa = p2.next
+        p2.next = p1
+        p1 = p2
+        p2 = sa
+    p2.next = p1
+    return p2
+
+def reverse2(head):
+    def dfs(node):
+        if node.next:
+            re = dfs(node.next)
+            re.next = node
+        return node
+    re = dfs(head)
+    head.next = None
+    return re
+
 if __name__ == '__main__':
     head= My_Linked_List.linklist(list(range(10)))
     out = reverse_link_list(head)
@@ -31,4 +58,10 @@ if __name__ == '__main__':
     My_Linked_List.printlist(out)
     head= My_Linked_List.linklist(list(range(2)))
     out = reverse_link_list(head)
+    My_Linked_List.printlist(out)
+    head = My_Linked_List.linklist(list(range(10)))
+    out = reverse(head)
+    My_Linked_List.printlist(out)
+    head = My_Linked_List.linklist(list(range(10)))
+    out = reverse2(head)
     My_Linked_List.printlist(out)

@@ -25,6 +25,5 @@ def count_one2(num):
 
 
 if __name__ == '__main__':
-    for i in range(-10000,10000):
-        count_one1(i)
-        count_one2(i)
+    print(count_one(-1))
+    print(count_one1(-1))
